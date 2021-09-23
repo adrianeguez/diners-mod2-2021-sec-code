@@ -106,6 +106,110 @@ const arregloTodo = [
     true, 1, 1.2, "Adrian", undefined, null, {}, [1, 2, true, "A"]
 ];
 
+// for of (valores) 
+for (let numero of arreglo) { // VALORES
+    console.log('numero', numero);
+}
+
+// for in (indices)
+for (let indice in arreglo) { // INDICES
+    console.log('indice', indice);
+}
+
+// const arreglo =  [6, 7, 8, 9, 10];
+//                  [0, 1, 2, 3, 4 ];
+arreglo.push(11); // Anadir al final un elemento
+// [6, 7, 8, 9, 10, 11];
+arreglo.pop(); // Eliminar al final un elemento
+// [6, 7, 8, 9, 10];
+
+// arreglo.splice(0, 1); // Elimina # de elementos por indice
+
+const indice = arreglo.indexOf(9); // VALOR -> POSICION (Indice) : -1
+
+arreglo[0] = 1;
+// arreglo = 12; // ERROR!!! 
+
+
+// Funciones
+
+function soloLetras(a, b, c) { // undefined
+    console.log(a, b, c);
+}
+
+function soloNumeros(a, b, c) {
+    return a - b + c; // valor a devolver
+}
+// soloNumeros('v', true, [1,2,3]);
+// soloNumeros();
+// soloNumeros(1,2,3,4,5,6,7,8,5,4,3,2,1,);
+soloNumeros(1,2,3);
+soloLetras('a','b','c');
+
+// Funciones nombradas - named functions
+function funcionNombrada() {
+}
+// funciones ANONIMAS
+const funcionNombradaDos = function () {
+}; 
+// funciones fat arrow functions (flecha gorda)
+// var -> function(){}
+// let -> ()=>{} // arreglan ciertos inconvenientes del lenguaje
+const funcionNombradaTres = () => {
+    // codigo
+};
+// Ejemplos de uso de funciones anonimas y de flecha gorda
+arreglo.forEach(
+    function(valor, indice, arreglo){
+       // codigo.... 
+    }
+)
+arreglo.forEach(
+    (valor, indice, arreglo) => {
+       // codigo... 
+    }
+)
+
+/*
+function forEachFun(funcionForeach){
+    const arregloQuemado = [1, 2, 3];
+    for (let i = 0; i<arregloQuemado.length;i++) {
+        funcionForeach(arregloQuemado[i], i, arregloQuemado)
+    }
+}
+
+const foreach = (funcionForeach)=>{
+    const arregloQuemado = [1, 2, 3];
+    for (let i = 0; i<arregloQuemado.length;i++) {
+        funcionForeach(arregloQuemado[i], i, arregloQuemado)
+    }
+}
+*/
+
+const funcionNombradaCuatro = (x) => {
+    return x + 1;
+};
+
+const funcionNombradaCinco = (x, y) => {
+    return x + y;
+};
+
+const funcionNombradaSiete = (x, y) => x + y;
+
+const funcionNombradaOcho = x => x * x;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
