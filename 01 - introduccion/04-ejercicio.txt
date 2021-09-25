@@ -168,8 +168,8 @@ arreglo.forEach(
     (valor, indice, arreglo) => {
        // codigo... 
     }
-) 
-// EMPEZAR COPIA
+)
+
 /*
 function forEachFun(funcionForeach){
     const arregloQuemado = [1, 2, 3];
@@ -185,7 +185,7 @@ const foreach = (funcionForeach)=>{
     }
 }
 */
-// TERMINA COPIA
+
 const funcionNombradaCuatro = (x) => {
     return x + 1;
 };
@@ -227,3 +227,19 @@ const funcionNombradaOcho = x => x * x;
 
 
 
+// 01-variables.js
+console.log('Hola mundo');
+
+// Declarar variables
+
+// Mutables -> = -> reasignadas
+
+var variableUno = 1;
+let variableDos = 2;
+variableUno = 3;
+variableDos = 3;
+
+// Inmutables -> no = -> no reasignadas
+
+const noPuedoCambiar = 1;
+noPuedoCambiar = "212";
