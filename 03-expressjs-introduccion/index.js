@@ -12,6 +12,42 @@ const port = 3000;
 // dependencias
 const getRawBody = require('raw-body')
 const contentType = require('content-type')
+app.post(
+    '/', 
+    (req, res)=>{  // /usuario/1/cuenta-bancaria/1234
+        req.params // parametros ruta Ej: '/usuario/:idUsuario/cuenta-bancaria/:idCuenta'
+        req.body // { "nombre":"Adrian", "apellido":"Eguez"  } JSON TEXTO PLANO .........
+        req.query // POST http://localhost:3000/?edad=32&correo=a@a.com
+        console.log(req.params);
+        console.log(req.body);
+        console.log(req.query);
+        res.send('Hola mundo POST');
+    }
+)
+app.get(
+    '/', 
+    (req, res)=>{
+        res.send('Hola mundo GET');
+    }
+)
+app.listen(port, ()=>{
+    console.log('App levantada en el puerto ', port);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 app.use( // middleware 
     (req, res, next)=>{
         if(!['POST', 'PUT', 'DELETE'].includes(req.method)){ // Si es diferente de estos metodos, no verificar el peso
@@ -33,20 +69,4 @@ app.use( // middleware
         )
     }
 );
-app.post(
-    '/', 
-    (req, res)=>{
-        res.send('Hola mundo POST');
-    }
-)
-
-app.get(
-    '/', 
-    (req, res)=>{
-        res.send('Hola mundo GET');
-    }
-)
-
-app.listen(port, ()=>{
-    console.log('App levantada en el puerto ', port);
-});
+* */
