@@ -12,16 +12,53 @@ const port = 3000;
 // dependencias
 const getRawBody = require('raw-body')
 const contentType = require('content-type')
+
+const Joi = require('joi');
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
 app.post(
     '/', 
     (req, res)=>{  // /usuario/1/cuenta-bancaria/1234
+
         req.params // parametros ruta Ej: '/usuario/:idUsuario/cuenta-bancaria/:idCuenta'
         req.body // { "nombre":"Adrian", "apellido":"Eguez"  } JSON TEXTO PLANO .........
         req.query // POST http://localhost:3000/?edad=32&correo=a@a.com
         console.log(req.params);
         console.log(req.body);
         console.log(req.query);
-        res.send('Hola mundo POST');
+
+        const schemaValidacion = Joi.object({
+            nombre: Joi
+            .string()
+            .alphanum()
+            .min(3)
+            .max(10),
+
+            apellido: Joi
+            .string()
+            .alphanum()
+            .min(3)
+            .max(10)
+            .required(),
+        });
+        const valores = {
+            nombre: req.body.nombre,
+            apellido: req.body.apellido
+        }
+        schemaValidacion
+        .validateAsync(valores)
+        .then(
+            ()=>{
+                res.send('Datos validos');
+            }
+        )
+        .catch(
+            (error)=>{
+                console.error(error);
+                res.status(400).send('Error validando datos');
+            }
+        )
     }
 )
 app.get(
